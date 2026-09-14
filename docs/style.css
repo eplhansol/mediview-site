@@ -1,0 +1,146 @@
+/* 의료 뉴스 분석 사이트 — 뉴닉과 뉴스타파의 중간, 만든 티 안 나게 (2026-09-11).
+   장식을 뺐다. 이모지·타일·그라데이션·알약 칩 없음. 검정 글자, 얇은 선, 파랑 한 색,
+   주황은 머리기사 표기 한 점. 그림이 없으니 글자 크기와 선으로만 층을 만든다. */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+:root{
+  --ink:#151619; --body:#3a3d42; --muted:#6b6e73; --line:#dfe1e4; --line2:#eceef0;
+  --bg:#fff; --soft:#f6f6f7; --blue:#167ac6; --orange:#ff733c;
+  --font:"Pretendard Variable",Pretendard,"Noto Sans KR",-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;letter-spacing:-.012em}
+a{color:inherit;text-decoration:none}
+.in{max-width:1000px;margin:0 auto;padding:0 24px}
+.in.narrow{max-width:700px}
+
+/* 머리 — 로고 왼쪽, 단추 오른쪽. 그 아래 메뉴는 글자에 밑줄 */
+.top{background:#fff;border-bottom:1px solid var(--ink)}
+.top .in{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{font-weight:900;font-size:24px;letter-spacing:-.05em;color:var(--ink);white-space:nowrap}
+.brand small{display:inline-block;margin-left:12px;font-weight:400;font-size:12.5px;color:var(--muted);letter-spacing:-.01em}
+.cta{font-weight:700;font-size:13px;color:var(--ink);padding:7px 14px;border:1px solid var(--ink);border-radius:2px;white-space:nowrap}
+.cta:hover{background:var(--ink);color:#fff}
+.menu{display:flex;gap:26px;overflow-x:auto;border-bottom:1px solid var(--line);scrollbar-width:none;-ms-overflow-style:none}
+.menu::-webkit-scrollbar{display:none}
+.menu a{flex:0 0 auto;font-size:14.5px;font-weight:700;color:var(--body);padding:13px 0 11px;border-bottom:2px solid transparent;margin-bottom:-1px}
+.menu a.on{color:var(--ink);border-color:var(--ink)}
+.menu a:hover{color:var(--ink)}
+
+main{padding:8px 0 72px}
+
+/* 사진 — photo.py 가 받아 손본 1200×630. 홈 머리기사와 글 위에만. 목록에는 없다 */
+.item.withpic{display:grid;grid-template-columns:1fr 200px;gap:20px;align-items:start}
+.item.withpic .pic{display:block;overflow:hidden;aspect-ratio:1200/630;background:var(--soft)}
+.item.withpic .pic img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:560px){.item.withpic{grid-template-columns:1fr 120px;gap:14px}}
+.hero .pic{margin-bottom:18px;background:var(--soft)}
+.hero .pic img{width:100%;display:block}
+@media(min-width:760px){a.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:32px;align-items:center}.hero .pic{margin:0}}
+.post .cover{margin:0 0 24px;background:var(--soft)}
+.post .cover img{width:100%;display:block}
+.post .cover figcaption{font-size:12px;color:var(--muted);text-align:right;padding:6px 0 0}
+.post .cover figcaption a{color:var(--muted)}
+.post .mail{font-size:20px;font-weight:800;margin:8px 0 24px}
+.post .mail a{color:var(--blue);text-decoration:underline;text-underline-offset:4px}
+.post .small{font-size:14px;color:var(--muted)}
+
+/* 머리기사 — 흰 바탕에 큰 제목. 아래 굵은 선 하나 */
+.hero{display:block;padding:34px 0 30px;border-bottom:1px solid var(--ink)}
+.hero .kick{font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--orange)}
+.hero h2{margin:10px 0 12px;font-size:34px;line-height:1.28;letter-spacing:-.045em;font-weight:900;max-width:760px}
+.hero h2:hover{color:var(--blue)}
+.hero p{margin:0;font-size:16.5px;line-height:1.7;color:var(--body);max-width:680px}
+
+/* 섹션 제목 */
+.sec{display:flex;align-items:baseline;gap:12px;margin:36px 0 2px;padding-bottom:10px;border-bottom:1px solid var(--ink);font-size:19px;font-weight:800;letter-spacing:-.03em}
+.sec span{font-size:13px;font-weight:400;color:var(--muted);letter-spacing:-.01em}
+.sec .more{margin-left:auto;font-size:13px;font-weight:600;color:var(--blue)}
+
+/* 목록 — 넓은 화면 두 칸, 좁은 화면 한 칸. 줄 사이 얇은 선 */
+.today,.cat-block{display:grid;grid-template-columns:1fr;column-gap:44px}
+@media(min-width:760px){.today,.cat-block{grid-template-columns:1fr 1fr}.today .sec,.cat-block .sec{grid-column:1/-1}}
+.item{padding:18px 0;border-bottom:1px solid var(--line2)}
+.item .meta{font-size:12.5px;color:var(--muted);display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.item .cat{font-weight:700;color:var(--blue)}
+.item h2,.item h3{margin:0 0 6px;font-size:17.5px;line-height:1.42;letter-spacing:-.025em;font-weight:800}
+.item h2 a:hover,.item h3 a:hover{color:var(--blue)}
+.item p{margin:0;font-size:14.5px;line-height:1.6;color:var(--body);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.page-head{margin:26px 0 2px;padding-bottom:12px;border-bottom:1px solid var(--ink)}
+.page-head h1{font-size:28px;font-weight:900;letter-spacing:-.04em;margin:0 0 4px}
+.page-head p{margin:0;color:var(--muted);font-size:14px}
+.empty{color:var(--muted);padding:24px 0}
+
+/* 글 */
+.post .crumb{font-size:13px;color:var(--muted);margin:22px 0 12px}
+.post .crumb a{color:var(--blue);font-weight:600}
+.post h1{font-size:32px;line-height:1.3;letter-spacing:-.045em;font-weight:900;margin:0 0 14px}
+.post .meta{font-size:13px;color:var(--muted);margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--ink)}
+.post .lead{font-size:18px;line-height:1.7;margin:0 0 30px;color:var(--ink);font-weight:500}
+.post h2{font-size:21px;font-weight:900;letter-spacing:-.03em;margin:38px 0 10px;padding-top:14px;border-top:1px solid var(--line)}
+.post p{font-size:17px;line-height:1.85;margin:0 0 16px;color:var(--body)}
+.post table.num{border-collapse:collapse;width:100%;margin:6px 0 24px;font-size:14.5px;border-top:2px solid var(--ink)}
+.post table.num th{text-align:left;font-weight:700;padding:11px 12px;width:44%;color:var(--ink);border-bottom:1px solid var(--line);background:var(--soft)}
+.post table.num td{padding:11px 12px;border-bottom:1px solid var(--line)}
+.post ul.rel,.post ul.src{padding-left:18px;font-size:15px;color:var(--body)}
+.post ul.rel li,.post ul.src li{margin:6px 0}
+.post ul.rel a{color:var(--ink);font-weight:700}
+.post ul.rel a:hover{color:var(--blue)}
+.post ul.src a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.post .tags{margin-top:28px;font-size:13.5px;color:var(--muted)}
+.post .tags a{margin-right:12px;color:var(--body);font-weight:600}
+.post .tags a:hover{color:var(--blue)}
+
+/* 소개·문의 — 두 칸. 왼쪽 글, 오른쪽 원칙이나 양식 */
+.info{display:grid;grid-template-columns:1fr;gap:36px;margin-top:26px}
+@media(min-width:820px){.info{grid-template-columns:1.2fr 1fr;gap:56px}}
+.info .lead{font-size:19px;line-height:1.65;font-weight:600;margin:0 0 14px;color:var(--ink)}
+.info .lead2{font-size:16px;line-height:1.7;color:var(--body);margin:0 0 30px}
+.info h2{font-size:15px;font-weight:800;letter-spacing:-.02em;margin:0 0 6px;padding-bottom:8px;border-bottom:1px solid var(--ink)}
+.rows{margin:0;display:grid;grid-template-columns:120px 1fr;border-top:1px solid var(--line)}
+.rows dt,.rows dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line2);font-size:15px;line-height:1.6}
+.rows dt{font-weight:800;color:var(--ink)}
+.rows dd{color:var(--body)}
+.info .note{font-size:14px;color:var(--muted);line-height:1.65;margin:18px 0 0}
+.rules{margin:0;padding-left:20px;font-size:15px;color:var(--body);line-height:1.65}
+.rules li{margin:0 0 10px}
+.box{margin-top:28px;padding:20px;border:1px solid var(--ink)}
+.box b{display:block;font-size:15px;margin-bottom:6px}
+.box p{margin:0 0 14px;font-size:14px;color:var(--body);line-height:1.6}
+.btn{display:inline-block;font-weight:700;font-size:14px;padding:9px 16px;background:var(--ink);color:#fff;border-radius:2px}
+.btn:hover{background:var(--blue)}
+
+/* 문의 양식 — 흰 칸, 검정 선. 둥근 모서리와 그림자 없음 */
+.ask{display:flex;flex-direction:column;gap:14px;padding:24px;border:1px solid var(--ink);background:#fff}
+.ask label{display:flex;flex-direction:column;gap:6px;font-size:13.5px;font-weight:700;color:var(--ink)}
+.ask label small{font-weight:400;color:var(--muted);margin-left:4px}
+.ask input,.ask select,.ask textarea{font:inherit;font-size:15px;font-weight:400;padding:10px 12px;border:1px solid var(--line);border-radius:2px;background:#fff;color:var(--ink);width:100%}
+.ask input:focus,.ask select:focus,.ask textarea:focus{outline:none;border-color:var(--ink)}
+.ask textarea{resize:vertical;min-height:140px}
+.ask .chk{flex-direction:row;align-items:flex-start;gap:8px;font-weight:400;font-size:13px;color:var(--body);line-height:1.5}
+.ask .chk input{width:auto;margin-top:3px}
+.ask button{font:inherit;font-size:15px;font-weight:800;padding:13px;border:0;border-radius:2px;background:var(--ink);color:#fff;cursor:pointer}
+.ask button:hover{background:var(--blue)}
+.ask .alt{margin:0;font-size:13px;color:var(--muted);text-align:center}
+.ask .alt a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+
+/* 발 — 두 단. 위는 이름과 갈래, 아래는 한 줄 설명과 저작권 */
+.foot{border-top:1px solid var(--ink);margin-top:24px;padding:26px 0 40px;font-size:13.5px;color:var(--muted)}
+.frow{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid var(--line)}
+.fbrand b{font-size:19px;font-weight:900;letter-spacing:-.04em;color:var(--ink);margin-right:10px}
+.fbrand span{font-size:13px}
+.flinks{display:flex;gap:18px}
+.flinks a{color:var(--ink);font-weight:700;font-size:13.5px}
+.flinks a:hover{color:var(--blue)}
+.foot p{margin:0 0 8px}
+.foot .small{font-size:13px;line-height:1.6;max-width:720px}
+.foot .copy{font-size:12.5px;margin:0}
+
+@media(max-width:760px){
+  .in{padding:0 18px}
+  .top .in{height:56px}.brand{font-size:21px}.brand small{display:none}
+  .menu{gap:18px}.menu a{font-size:14px}
+  .hero{padding:24px 0 22px}.hero h2{font-size:25px}.hero p{font-size:15px}
+  .item h2,.item h3{font-size:16.5px}
+  .post h1{font-size:25px}.post p{font-size:16px}.post .lead{font-size:16.5px}
+}
