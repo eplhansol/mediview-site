@@ -71,6 +71,11 @@ main{padding:8px 0 72px}
 .page-head p{margin:0;color:var(--muted);font-size:15.5px}
 .empty{color:var(--muted);padding:24px 0}
 
+/* 협업 표시 — 목록 날짜 앞, 글 첫머리 고지. 광고로 읽히게 숨기지 않는다 */
+.collab{display:inline-block;font-size:12.5px;font-weight:800;color:var(--orange);border:1px solid var(--orange);padding:0 6px;line-height:1.6;border-radius:2px}
+.post .collab-note{font-size:15px;line-height:1.7;color:var(--muted);margin:0 0 20px;padding:12px 14px;border:1px solid var(--line)}
+.post .collab-note .collab{margin-right:8px;vertical-align:1px}
+
 /* 글 */
 .post .brief{margin:0 0 26px;padding:18px 22px;background:var(--soft);border-left:3px solid var(--ink)}
 .post .brief b{display:block;font-size:14.5px;font-weight:800;letter-spacing:.02em;color:var(--ink);margin-bottom:8px}
