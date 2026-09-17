@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mediview.example/sitemap.xml
+Sitemap: https://eplhansol.github.io/mediview-site/sitemap.xml
